@@ -1,0 +1,75 @@
+@font-face {
+  font-family: dock11;
+  src: url(./heavy_dock11.otf);
+}
+
+:root {
+  --txt3d-layers: rgb(157, 191, 236);
+  --txt3d-lsb: rgba(0, 0, 0, 0.2);
+  --txt3d-ssb: rgba(0, 0, 0, 0.2);
+}
+
+html {
+  height: 100%;
+  background: #101925;
+}
+
+body {
+  height: 98%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 20px;
+}
+
+.emboss-txt {
+  position: relative;
+  font-size: 8rem;
+  font-family: dock11;
+  letter-spacing: 8px;
+  color: aliceblue;
+  text-shadow: 
+  /* 3d layers */ 0px 0px 1px var(--txt3d-layers),
+    0px 1px 1px var(--txt3d-layers), 0px 2px 1px var(--txt3d-layers),
+    1px 1px 1px var(--txt3d-layers), 1px 2px 1px var(--txt3d-layers),
+    1px 3px 1px var(--txt3d-layers), 2px 2px 1px var(--txt3d-layers),
+    2px 3px 1px var(--txt3d-layers), 2px 4px 1px var(--txt3d-layers),
+    /* long soft bottom  */ 1px 10px 20px var(--txt3d-lsb),
+    1px 10px 20px var(--txt3d-lsb), 1px 10px 20px var(--txt3d-lsb),
+    /* short soft bottom  */ 0px 5px 5px var(--txt3d-lsb),
+    /* left shadow */ -5px 5px 20px var(--txt3d-ssb),
+    /* Right shadow */ 5px 5px 20px var(--txt3d-ssb),
+    /* Right shadow */ 1px 1px 5em rgba(255, 255, 255, 0.5);
+}
+
+.emboss-txt::after {
+  content: "BOLD.";
+  font-size: 8rem;
+  letter-spacing: 8px;
+  font-family: dock11;
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-shadow: 0px 0px 100px rgba(64, 255, 223, 0.5);
+  position: absolute;
+  animation: cycle 10s linear infinite;
+}
+
+@keyframes cycle {
+  0% {
+    text-shadow: 0px 0px 100px rgba(0, 140, 255, 0.8);
+  }
+  20% {
+    text-shadow: 0px 0px 100px rgba(92, 11, 199, 0.8);
+  }
+  40% {
+    text-shadow: 0px 0px 100px rgba(199, 11, 158, 0.8);
+  }
+  60% {
+    text-shadow: 0px 0px 100px rgba(199, 155, 11, 0.8);
+  }
+  80% {
+    text-shadow: 0px 0px 100px rgba(11, 199, 136, 0.8);
+  }
+}
